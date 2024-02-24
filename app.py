@@ -68,7 +68,8 @@ elif category=='travel':
 # Prediction button and result display
 if st.button("Predict Fraud"):
     # Prepare input data (adjust based on your model's requirements)
-    data = pd.DataFrame([[step, age, gender, merchant, category, amount]])
+    data = pd.DataFrame([[gender,amount,age,step,category,merchant]])
+
 
     # Make prediction
     prediction = load_model_and_predict(data)[0]
