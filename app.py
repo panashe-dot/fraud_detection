@@ -28,45 +28,40 @@ merchant = st.selectbox("Merchant", ("30", "18"))
 category = st.selectbox("Category",(categories))
 amount = st.number_input("Amount", min_value=0.0)
 
-# Feature engineering (optional, depending on your model)
-# ...
-if gender=="Male":
-    gender=2
-else:
-    gender=1
-
-if categories=='barsandrestaurants':
-    category=0
-elif category=='contents':
-    category==1
-elif category=='fashion':
-    category==2
-elif category=='food':
-    category==3
-elif category=='health':
-    category==4
-elif category=='home':
-    category==5
-elif category=='hotelservices':
-    category==6
-elif category=='hyper':
-    category==7               
-elif category=='leisure':
-    category==8
-elif category=='otherservices':
-    category==9                 
-elif category=='sportsandtoys':
-    category==10
-elif category=='tech':
-    category==11       
-elif category=='transportation':
-    category==12                
-elif category=='travel':
-    category==13      
-             
-
 # Prediction button and result display
 if st.button("Predict Fraud"):
+    if gender=="Male":
+        gender=2
+    else:
+        gender=1
+    if categories=='barsandrestaurants':
+        category=0
+    elif category=='contents':
+        category==1
+    elif category=='fashion':
+        category==2
+    elif category=='food':
+        category==3
+    elif category=='health':
+        category==4
+    elif category=='home':
+         category==5
+    elif category=='hotelservices':
+         category==6
+    elif category=='hyper':
+         category==7               
+    elif category=='leisure':
+         category==8
+    elif category=='otherservices':
+        category==9                 
+    elif category=='sportsandtoys':
+        category==10
+    elif category=='tech':
+        category==11       
+    elif category=='transportation':
+        category==12                
+    elif category=='travel':
+        category==13             
     # Prepare input data (adjust based on your model's requirements)
     data = {
     "step":step,  # Replace with your actual data
@@ -75,20 +70,18 @@ if st.button("Predict Fraud"):
     "merchant":merchant,
     "category":category,
     "amount":amount
-}
-data_df = pd.DataFrame([data])
+    }
+    data_df = pd.DataFrame([data])
 
 
     # Make prediction
-prediction = load_model_and_predict(data)[0]
+    prediction = load_model_and_predict(data)[0]
 
     # Format and display result
-if prediction >= 0.5:
+    if prediction >= 0.5:
         st.success("**Potential Fraud Detected (Predicted: 1)**")
-else:
+    else:
         st.info("**Low Fraud Risk (Predicted: 0)**")
-
-# App styling (adjust to your preferences)
 st.set_page_config(layout="wide")
 st.markdown("""
 <style>
