@@ -12,9 +12,6 @@ def load_model_and_predict(data):
   predictions = model.predict(data)
   return predictions
 
-categories = ['barsandrestaurants', 'contents', 'fashion', 'food', 'health',
-           'home', 'hotelservices', 'hyper', 'leisure', 'otherservices',
-           'sportsandtoys', 'tech', 'transportation', 'travel']
 # Input form
 st.title("Fraud Detection App")
 st.write("Enter transaction details to check for:")
@@ -31,7 +28,7 @@ if st.button("Predict Fraud"):
         gender=2
     else:
         gender=1
-    if categories=='barsandrestaurants':
+    if category=='barsandrestaurants':
         category=0
     elif category=='contents':
         category==1
