@@ -56,12 +56,12 @@ if st.button("Predict Fraud"):
         gender=1            
     # Prepare input data (adjust based on your model's requirements)
     data = {
-    "step":step, 
-    "age":age,
-    "gender":gender,
-    "merchant":merchant,
-    "category":map_category_to_integer(category),
-    "amount":amount
+    "step":float(step), 
+    "age":float(age),
+    "gender":float(gender),
+    "merchant":float(merchant),
+    "category":float(map_category_to_integer(category)),
+    "amount":float(amount)
     }
     data_df = pd.DataFrame([data])
     st.write(data_df)
