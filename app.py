@@ -63,4 +63,7 @@ if st.button("Predict Fraud"):
     "category":map_category_to_integer(category),
     "amount":amount
     }
-    st.write(step,age,gender,merchant,category,amount)
+    if prediction >= 0.5:
+        st.success("**Potential Fraud Detected (Predicted: 1)**")
+    else:
+        st.info("**Low Fraud Risk (Predicted: 0)**")
