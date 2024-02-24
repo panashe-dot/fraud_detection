@@ -64,5 +64,5 @@ if st.button("Predict Fraud"):
     "amount":float(amount)
     }
     data_df = pd.DataFrame([data])
-    prediction = load_model_and_predict(data)[0]
+    prediction = load_model_and_predict(data)
     st.write(prediction)
