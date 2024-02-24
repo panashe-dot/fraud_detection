@@ -61,12 +61,12 @@ if st.button("Predict Fraud"):
         category==13             
     # Prepare input data (adjust based on your model's requirements)
     data = {
-    "step":step,  # Replace with your actual data
-    "age":age,
-    "gender":gender,
-    "merchant":merchant,
-    "category":category,
-    "amount":amount
+    "step":float(step), 
+    "age":float(age),
+    "gender":float(gender),
+    "merchant":float(merchant),
+    "category":float(category),
+    "amount":float(amount)
     }
     data_df = pd.DataFrame([data])
     prediction = load_model_and_predict(data)[0]
