@@ -61,11 +61,11 @@ if st.button("Predict Fraud"):
         category==13             
     # Prepare input data (adjust based on your model's requirements)
     data = {
-    "step":float(step), 
-    "age":float(age),
-    "gender":float(gender),
-    "merchant":float(merchant),
-    "category":float(1),
-    "amount":float(amount)
+    "step":step, 
+    "age":age,
+    "gender":gender,
+    "merchant":merchant,
+    "category":category,
+    "amount":amount
     }
-   st.write(step,age,gender,merchant,category,amount)
+    st.write(step,age,gender,merchant,category,amount)
