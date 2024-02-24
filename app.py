@@ -12,6 +12,9 @@ def load_model_and_predict(data):
   predictions = model.predict(data)
   return predictions
 
+categories = ['barsandrestaurants', 'contents', 'fashion', 'food', 'health',
+           'home', 'hotelservices', 'hyper', 'leisure', 'otherservices',
+           'sportsandtoys', 'tech', 'transportation', 'travel']
 # Input form
 st.title("Fraud Detection App")
 st.write("Enter transaction details to check for:")
@@ -22,47 +25,42 @@ merchant = st.selectbox("Merchant", (30,18))
 category = st.selectbox("Category",('barsandrestaurants','contents','fashion','food','health','home','hotelservices','hyper','leisure','otherservices','sportsandtoys','tech','transportation','travel'))
 amount = st.number_input("Amount", min_value=0.0)
 
+
+
+def map_category_to_integer(category):
+    category_map = {
+        "barsandrestaurants": 0,
+        "contents": 1,
+        "fashion": 2,
+        "food": 3,
+        "health": 4,
+        "home": 5,
+        "hotelservices": 6,
+        "hyper": 7,
+        "leisure": 8,
+        "otherservices": 9,
+        "sportsandtoys": 10,
+        "tech": 11,
+        "transportation": 12,
+        "travel": 13,
+    }
+
+    return category_map.get(category)
+
+
 # Prediction button and result display
 if st.button("Predict Fraud"):
     if gender=="Male":
         gender=2
     else:
-        gender=1
-    if category=='barsandrestaurants':
-        category=0
-    elif category=='contents':
-        category==1
-    elif category=='fashion':
-        category==2
-    elif category=='food':
-        category==3
-    elif category=='health':
-        category==4
-    elif category=='home':
-         category==5
-    elif category=='hotelservices':
-         category==6
-    elif category=='hyper':
-         category==7               
-    elif category=='leisure':
-         category==8
-    elif category=='otherservices':
-        category==9                 
-    elif category=='sportsandtoys':
-        category==10
-    elif category=='tech':
-        category==11       
-    elif category=='transportation':
-        category==12                
-    elif category=='travel':
-        category==13             
+        gender=1            
     # Prepare input data (adjust based on your model's requirements)
     data = {
     "step":step, 
     "age":age,
     "gender":gender,
     "merchant":merchant,
-    "category":category,
+    "category":map_category_to_integer(category),
     "amount":amount
     }
     st.write(step,age,gender,merchant,category,amount)
