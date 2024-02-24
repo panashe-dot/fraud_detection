@@ -66,7 +66,7 @@ if st.button("Predict Fraud"):
     data_df = pd.DataFrame([data])
     prediction = load_model_and_predict(data_df)[0]
     if prediction >= 0.5:
-        st.success("**Potential Fraud Detected (Predicted: 1)**")
+        st.success("**Fraud Detected**")
     else:
-        st.info("**Low Fraud Risk (Predicted: 0)**")
+        st.info("**No Fraud Detected**")
 
