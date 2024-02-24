@@ -65,7 +65,7 @@ if st.button("Predict Fraud"):
     "age":float(age),
     "gender":float(gender),
     "merchant":float(merchant),
-    "category":float(category),
+    "category":float(1),
     "amount":float(amount)
     }
     data_df = pd.DataFrame([data])
