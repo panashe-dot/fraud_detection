@@ -3,20 +3,7 @@ import pandas as pd
 from xgboost import XGBRegressor
 import joblib  # For model persistence
 
-st.set_page_config(layout="wide")
-st.markdown("""
-<style>
-body { background-color: #f0f0f0; }
-.reportview-container { background-color: #fff; }
-.main { padding: 1rem; }
-h1, h2, h3 { color: #333; }
-.stInput { padding: 0.5rem 1rem; margin-bottom: 1rem; }
-button { background-color: #4CAF50; color: white; padding: 1rem 2rem; border: none; cursor: pointer; border-radius: 5px; }
-button:hover { background-color: #3e8e41; }
-.success { color: green; }
-.info { color: blue; }
-</style>
-""", unsafe_allow_html=True)
+
 
 # Model loading and prediction function (assuming the model is already saved)
 def load_model_and_predict(data):
