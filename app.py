@@ -80,13 +80,13 @@ data_df = pd.DataFrame([data])
 
 
     # Make prediction
-    prediction = load_model_and_predict(data)[0]
+prediction = load_model_and_predict(data)[0]
 
     # Format and display result
 if prediction >= 0.5:
-    st.success("**Potential Fraud Detected (Predicted: 1)**")
+        st.success("**Potential Fraud Detected (Predicted: 1)**")
 else:
-    st.info("**Low Fraud Risk (Predicted: 0)**")
+        st.info("**Low Fraud Risk (Predicted: 0)**")
 
 # App styling (adjust to your preferences)
 st.set_page_config(layout="wide")
