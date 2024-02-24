@@ -18,7 +18,7 @@ categories = ['barsandrestaurants', 'contents', 'fashion', 'food', 'health',
 # Input form
 st.title("Fraud Detection App")
 st.write("Enter transaction details to check for:")
-step = st.number_input("Step", min_value=0)
+step = st.number_input("Step",min_value=0)
 age = st.number_input("Age", min_value=0)
 gender = st.radio("Gender", ("Male", "Female"))
 merchant = st.selectbox("Merchant", (30,18))
@@ -68,6 +68,4 @@ if st.button("Predict Fraud"):
     "category":float(1),
     "amount":float(amount)
     }
-    data_df = pd.DataFrame([data])
-    prediction = load_model_and_predict(data)[0]
-    st.write(prediction)
+   st.write(step,age,gender,merchant,category,amount)
